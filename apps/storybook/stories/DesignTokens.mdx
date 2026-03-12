@@ -1,0 +1,363 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Design Tokens" />
+
+# Design Tokens
+
+Design tokens are the visual foundation of the ArcTech Design System. They are delivered as CSS custom properties (prefixed with `--arc-`) and can be consumed in any framework or plain CSS.
+
+```css
+@import '@arctech/tokens/css/tokens.css';
+```
+
+---
+
+## Colors
+
+### Primary (Purple)
+
+The primary brand color used for buttons, links, and interactive elements.
+
+<div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginBottom: '16px' }}>
+  {[
+    { step: '50', hex: '#f3e8ff', border: true },
+    { step: '100', hex: '#e9d5ff' },
+    { step: '200', hex: '#d8b4fe' },
+    { step: '300', hex: '#c084fc' },
+    { step: '400', hex: '#a855f7' },
+    { step: '500', hex: '#7c3aed' },
+    { step: '600', hex: '#6d28d9' },
+    { step: '700', hex: '#5b21b6' },
+    { step: '800', hex: '#4c1d95' },
+    { step: '900', hex: '#3b0764' },
+  ].map((c) => (
+    <div key={c.step} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+      <div style={{ width: '64px', height: '40px', borderRadius: '6px', background: c.hex, border: c.border ? '1px solid #e4e4e7' : 'none' }} />
+      <code style={{ fontSize: '10px' }}>{c.step}</code>
+    </div>
+  ))}
+</div>
+
+<table>
+  <thead><tr><th>Token</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td><code>--arc-color-primary-50</code></td><td><code>#f3e8ff</code></td></tr>
+    <tr><td><code>--arc-color-primary-100</code></td><td><code>#e9d5ff</code></td></tr>
+    <tr><td><code>--arc-color-primary-200</code></td><td><code>#d8b4fe</code></td></tr>
+    <tr><td><code>--arc-color-primary-300</code></td><td><code>#c084fc</code></td></tr>
+    <tr><td><code>--arc-color-primary-400</code></td><td><code>#a855f7</code></td></tr>
+    <tr><td><code>--arc-color-primary-500</code></td><td><code>#7c3aed</code></td></tr>
+    <tr><td><code>--arc-color-primary-600</code></td><td><code>#6d28d9</code></td></tr>
+    <tr><td><code>--arc-color-primary-700</code></td><td><code>#5b21b6</code></td></tr>
+    <tr><td><code>--arc-color-primary-800</code></td><td><code>#4c1d95</code></td></tr>
+    <tr><td><code>--arc-color-primary-900</code></td><td><code>#3b0764</code></td></tr>
+  </tbody>
+</table>
+
+### Secondary (Teal)
+
+The secondary brand color used for accents and complementary actions.
+
+<div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginBottom: '16px' }}>
+  {[
+    { step: '50', hex: '#f0fdfa', border: true },
+    { step: '100', hex: '#ccfbf1' },
+    { step: '200', hex: '#99f6e4' },
+    { step: '300', hex: '#5eead4' },
+    { step: '400', hex: '#2dd4bf' },
+    { step: '500', hex: '#14b8a6' },
+    { step: '600', hex: '#0d9488' },
+    { step: '700', hex: '#0f766e' },
+    { step: '800', hex: '#115e59' },
+    { step: '900', hex: '#134e4a' },
+  ].map((c) => (
+    <div key={c.step} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+      <div style={{ width: '64px', height: '40px', borderRadius: '6px', background: c.hex, border: c.border ? '1px solid #e4e4e7' : 'none' }} />
+      <code style={{ fontSize: '10px' }}>{c.step}</code>
+    </div>
+  ))}
+</div>
+
+<table>
+  <thead><tr><th>Token</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td><code>--arc-color-secondary-50</code></td><td><code>#f0fdfa</code></td></tr>
+    <tr><td><code>--arc-color-secondary-100</code></td><td><code>#ccfbf1</code></td></tr>
+    <tr><td><code>--arc-color-secondary-200</code></td><td><code>#99f6e4</code></td></tr>
+    <tr><td><code>--arc-color-secondary-300</code></td><td><code>#5eead4</code></td></tr>
+    <tr><td><code>--arc-color-secondary-400</code></td><td><code>#2dd4bf</code></td></tr>
+    <tr><td><code>--arc-color-secondary-500</code></td><td><code>#14b8a6</code></td></tr>
+    <tr><td><code>--arc-color-secondary-600</code></td><td><code>#0d9488</code></td></tr>
+    <tr><td><code>--arc-color-secondary-700</code></td><td><code>#0f766e</code></td></tr>
+    <tr><td><code>--arc-color-secondary-800</code></td><td><code>#115e59</code></td></tr>
+    <tr><td><code>--arc-color-secondary-900</code></td><td><code>#134e4a</code></td></tr>
+  </tbody>
+</table>
+
+### Neutral
+
+Grays used for text, backgrounds, borders, and dividers.
+
+<div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginBottom: '16px' }}>
+  {[
+    { step: '0', hex: '#ffffff', border: true },
+    { step: '50', hex: '#fafafa', border: true },
+    { step: '100', hex: '#f4f4f5' },
+    { step: '200', hex: '#e4e4e7' },
+    { step: '300', hex: '#d4d4d8' },
+    { step: '400', hex: '#a1a1aa' },
+    { step: '500', hex: '#71717a' },
+    { step: '600', hex: '#52525b' },
+    { step: '700', hex: '#3f3f46' },
+    { step: '800', hex: '#27272a' },
+    { step: '900', hex: '#18181b' },
+    { step: '950', hex: '#09090b' },
+  ].map((c) => (
+    <div key={c.step} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+      <div style={{ width: '64px', height: '40px', borderRadius: '6px', background: c.hex, border: c.border ? '1px solid #e4e4e7' : 'none' }} />
+      <code style={{ fontSize: '10px' }}>{c.step}</code>
+    </div>
+  ))}
+</div>
+
+<table>
+  <thead><tr><th>Token</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td><code>--arc-color-neutral-0</code></td><td><code>#ffffff</code></td></tr>
+    <tr><td><code>--arc-color-neutral-50</code></td><td><code>#fafafa</code></td></tr>
+    <tr><td><code>--arc-color-neutral-100</code></td><td><code>#f4f4f5</code></td></tr>
+    <tr><td><code>--arc-color-neutral-200</code></td><td><code>#e4e4e7</code></td></tr>
+    <tr><td><code>--arc-color-neutral-300</code></td><td><code>#d4d4d8</code></td></tr>
+    <tr><td><code>--arc-color-neutral-400</code></td><td><code>#a1a1aa</code></td></tr>
+    <tr><td><code>--arc-color-neutral-500</code></td><td><code>#71717a</code></td></tr>
+    <tr><td><code>--arc-color-neutral-600</code></td><td><code>#52525b</code></td></tr>
+    <tr><td><code>--arc-color-neutral-700</code></td><td><code>#3f3f46</code></td></tr>
+    <tr><td><code>--arc-color-neutral-800</code></td><td><code>#27272a</code></td></tr>
+    <tr><td><code>--arc-color-neutral-900</code></td><td><code>#18181b</code></td></tr>
+    <tr><td><code>--arc-color-neutral-950</code></td><td><code>#09090b</code></td></tr>
+  </tbody>
+</table>
+
+### Status Colors
+
+Used for alerts, badges, form validation, and feedback.
+
+<div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', marginBottom: '16px' }}>
+  {[
+    { label: 'Success', colors: ['#f0fdf4', '#22c55e', '#15803d'] },
+    { label: 'Warning', colors: ['#fffbeb', '#f59e0b', '#b45309'] },
+    { label: 'Error', colors: ['#fef2f2', '#ef4444', '#b91c1c'] },
+    { label: 'Info', colors: ['#eff6ff', '#3b82f6', '#1d4ed8'] },
+  ].map((group) => (
+    <div key={group.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+      <div style={{ display: 'flex', gap: '4px' }}>
+        {group.colors.map((hex, i) => (
+          <div key={hex} style={{ width: '40px', height: '32px', borderRadius: '6px', background: hex, border: i === 0 ? '1px solid #e4e4e7' : 'none' }} />
+        ))}
+      </div>
+      <code style={{ fontSize: '11px' }}>{group.label}</code>
+    </div>
+  ))}
+</div>
+
+<table>
+  <thead><tr><th>Token</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td><code>--arc-color-success-50</code></td><td><code>#f0fdf4</code></td></tr>
+    <tr><td><code>--arc-color-success-500</code></td><td><code>#22c55e</code></td></tr>
+    <tr><td><code>--arc-color-success-700</code></td><td><code>#15803d</code></td></tr>
+    <tr><td><code>--arc-color-warning-50</code></td><td><code>#fffbeb</code></td></tr>
+    <tr><td><code>--arc-color-warning-500</code></td><td><code>#f59e0b</code></td></tr>
+    <tr><td><code>--arc-color-warning-700</code></td><td><code>#b45309</code></td></tr>
+    <tr><td><code>--arc-color-error-50</code></td><td><code>#fef2f2</code></td></tr>
+    <tr><td><code>--arc-color-error-500</code></td><td><code>#ef4444</code></td></tr>
+    <tr><td><code>--arc-color-error-700</code></td><td><code>#b91c1c</code></td></tr>
+    <tr><td><code>--arc-color-info-50</code></td><td><code>#eff6ff</code></td></tr>
+    <tr><td><code>--arc-color-info-500</code></td><td><code>#3b82f6</code></td></tr>
+    <tr><td><code>--arc-color-info-700</code></td><td><code>#1d4ed8</code></td></tr>
+  </tbody>
+</table>
+
+---
+
+## Spacing
+
+A consistent spacing scale based on multiples of 4px.
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px' }}>
+  {[
+    { token: '--arc-spacing-1', px: 4 },
+    { token: '--arc-spacing-2', px: 8 },
+    { token: '--arc-spacing-3', px: 12 },
+    { token: '--arc-spacing-4', px: 16 },
+    { token: '--arc-spacing-5', px: 20 },
+    { token: '--arc-spacing-6', px: 24 },
+    { token: '--arc-spacing-8', px: 32 },
+    { token: '--arc-spacing-10', px: 40 },
+    { token: '--arc-spacing-12', px: 48 },
+    { token: '--arc-spacing-16', px: 64 },
+  ].map((s) => (
+    <div key={s.token} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <code style={{ fontSize: '12px', width: '200px', flexShrink: 0 }}>{s.token} ({s.px}px)</code>
+      <div style={{ width: `${s.px}px`, height: '16px', background: '#7c3aed', borderRadius: '2px' }} />
+    </div>
+  ))}
+</div>
+
+---
+
+## Typography
+
+### Font Families
+
+<div style={{ marginBottom: '16px' }}>
+  <p style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif", fontSize: '18px', marginBottom: '4px' }}>
+    The quick brown fox jumps over the lazy dog
+  </p>
+  <code style={{ fontSize: '12px' }}>--arc-font-family-sans: 'Inter', system-ui, -apple-system, sans-serif</code>
+</div>
+
+<div style={{ marginBottom: '16px' }}>
+  <p style={{ fontFamily: "'JetBrains Mono', 'Fira Code', monospace", fontSize: '18px', marginBottom: '4px' }}>
+    const value = 42;
+  </p>
+  <code style={{ fontSize: '12px' }}>--arc-font-family-mono: 'JetBrains Mono', 'Fira Code', monospace</code>
+</div>
+
+### Font Sizes
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px' }}>
+  {[
+    { token: '--arc-font-size-xs', px: 12 },
+    { token: '--arc-font-size-sm', px: 14 },
+    { token: '--arc-font-size-base', px: 16 },
+    { token: '--arc-font-size-lg', px: 18 },
+    { token: '--arc-font-size-xl', px: 20 },
+    { token: '--arc-font-size-2xl', px: 24 },
+    { token: '--arc-font-size-3xl', px: 30 },
+    { token: '--arc-font-size-4xl', px: 36 },
+  ].map((f) => (
+    <div key={f.token} style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
+      <code style={{ fontSize: '12px', width: '220px', flexShrink: 0 }}>{f.token} ({f.px}px)</code>
+      <span style={{ fontSize: `${f.px}px` }}>The quick brown fox</span>
+    </div>
+  ))}
+</div>
+
+### Font Weights
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px' }}>
+  {[
+    { token: '--arc-font-weight-normal', value: 400 },
+    { token: '--arc-font-weight-medium', value: 500 },
+    { token: '--arc-font-weight-semibold', value: 600 },
+    { token: '--arc-font-weight-bold', value: 700 },
+  ].map((w) => (
+    <div key={w.token} style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
+      <code style={{ fontSize: '12px', width: '260px', flexShrink: 0 }}>{w.token} ({w.value})</code>
+      <span style={{ fontSize: '18px', fontWeight: w.value }}>{w.value === 400 ? 'Normal' : w.value === 500 ? 'Medium' : w.value === 600 ? 'Semibold' : 'Bold'} weight text</span>
+    </div>
+  ))}
+</div>
+
+---
+
+## Border Radius
+
+<div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '16px' }}>
+  {[
+    { label: 'none', px: '0px' },
+    { label: 'sm', px: '4px' },
+    { label: 'md', px: '8px' },
+    { label: 'lg', px: '12px' },
+    { label: 'xl', px: '16px' },
+    { label: 'full', px: '9999px' },
+  ].map((r) => (
+    <div key={r.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+      <div style={{ width: '64px', height: '64px', background: '#e9d5ff', border: '2px solid #7c3aed', borderRadius: r.px }} />
+      <code style={{ fontSize: '10px' }}>{r.label} ({r.px})</code>
+    </div>
+  ))}
+</div>
+
+<table>
+  <thead><tr><th>Token</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td><code>--arc-border-radius-none</code></td><td><code>0px</code></td></tr>
+    <tr><td><code>--arc-border-radius-sm</code></td><td><code>4px</code></td></tr>
+    <tr><td><code>--arc-border-radius-md</code></td><td><code>8px</code></td></tr>
+    <tr><td><code>--arc-border-radius-lg</code></td><td><code>12px</code></td></tr>
+    <tr><td><code>--arc-border-radius-xl</code></td><td><code>16px</code></td></tr>
+    <tr><td><code>--arc-border-radius-full</code></td><td><code>9999px</code></td></tr>
+  </tbody>
+</table>
+
+---
+
+## Shadows
+
+<div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', marginBottom: '16px', padding: '16px', background: '#fafafa', borderRadius: '8px' }}>
+  {[
+    { label: 'sm', shadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)' },
+    { label: 'md', shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)' },
+    { label: 'lg', shadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)' },
+    { label: 'xl', shadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)' },
+  ].map((s) => (
+    <div key={s.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+      <div style={{ width: '96px', height: '64px', background: 'white', borderRadius: '8px', boxShadow: s.shadow }} />
+      <code style={{ fontSize: '10px' }}>{s.label}</code>
+    </div>
+  ))}
+</div>
+
+<table>
+  <thead><tr><th>Token</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td><code>--arc-shadow-sm</code></td><td><code>0 1px 2px 0 rgba(0, 0, 0, 0.05)</code></td></tr>
+    <tr><td><code>--arc-shadow-md</code></td><td><code>0 4px 6px -1px rgba(0, 0, 0, 0.1), ...</code></td></tr>
+    <tr><td><code>--arc-shadow-lg</code></td><td><code>0 10px 15px -3px rgba(0, 0, 0, 0.1), ...</code></td></tr>
+    <tr><td><code>--arc-shadow-xl</code></td><td><code>0 20px 25px -5px rgba(0, 0, 0, 0.1), ...</code></td></tr>
+  </tbody>
+</table>
+
+---
+
+## Transitions
+
+<table>
+  <thead><tr><th>Token</th><th>Value</th><th>Use Case</th></tr></thead>
+  <tbody>
+    <tr><td><code>--arc-transition-fast</code></td><td><code>150ms cubic-bezier(0.4, 0, 0.2, 1)</code></td><td>Hover states, toggles</td></tr>
+    <tr><td><code>--arc-transition-normal</code></td><td><code>200ms cubic-bezier(0.4, 0, 0.2, 1)</code></td><td>General interactions</td></tr>
+    <tr><td><code>--arc-transition-slow</code></td><td><code>300ms cubic-bezier(0.4, 0, 0.2, 1)</code></td><td>Modals, overlays, complex animations</td></tr>
+  </tbody>
+</table>
+
+---
+
+## Line Heights
+
+<table>
+  <thead><tr><th>Token</th><th>Value</th><th>Use Case</th></tr></thead>
+  <tbody>
+    <tr><td><code>--arc-line-height-tight</code></td><td><code>1.25</code></td><td>Headings, compact UI</td></tr>
+    <tr><td><code>--arc-line-height-normal</code></td><td><code>1.5</code></td><td>Body text</td></tr>
+    <tr><td><code>--arc-line-height-relaxed</code></td><td><code>1.75</code></td><td>Long-form content</td></tr>
+  </tbody>
+</table>
+
+---
+
+## Usage in CSS
+
+```css
+.my-component {
+  color: var(--arc-color-primary-500);
+  padding: var(--arc-spacing-4);
+  font-size: var(--arc-font-size-base);
+  font-family: var(--arc-font-family-sans);
+  border-radius: var(--arc-border-radius-md);
+  box-shadow: var(--arc-shadow-md);
+  transition: all var(--arc-transition-normal);
+}
+```

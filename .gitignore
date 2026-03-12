@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+loader/
+www/
+css/
+*.tsbuildinfo
+.turbo/
+storybook-static/
+.DS_Store
+*.log
+.env
+.env.local
+
+# Framework caches
+.angular/
+.svelte-kit/

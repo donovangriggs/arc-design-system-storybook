@@ -1,0 +1,100 @@
+:host {
+  display: block;
+}
+
+.card {
+  font-family: var(--arc-font-family-sans);
+  color: var(--arc-color-neutral-900);
+  background-color: var(--arc-color-neutral-0);
+  border-radius: var(--arc-border-radius-lg);
+  overflow: hidden;
+  transition: box-shadow var(--arc-transition-normal),
+    border-color var(--arc-transition-normal),
+    transform var(--arc-transition-fast);
+}
+
+/* ===== Variants ===== */
+
+.variant-default {
+  border: 1px solid var(--arc-color-neutral-200);
+  box-shadow: var(--arc-shadow-sm);
+}
+
+.variant-elevated {
+  border: 1px solid transparent;
+  box-shadow: var(--arc-shadow-lg);
+}
+
+.variant-outlined {
+  border: 2px solid var(--arc-color-neutral-300);
+  box-shadow: none;
+}
+
+/* ===== Padding ===== */
+
+.padding-none .header,
+.padding-none .body,
+.padding-none .footer {
+  padding: 0;
+}
+
+.padding-sm .header,
+.padding-sm .body,
+.padding-sm .footer {
+  padding: var(--arc-spacing-2) var(--arc-spacing-3);
+}
+
+.padding-md .header,
+.padding-md .body,
+.padding-md .footer {
+  padding: var(--arc-spacing-4) var(--arc-spacing-5);
+}
+
+.padding-lg .header,
+.padding-lg .body,
+.padding-lg .footer {
+  padding: var(--arc-spacing-6) var(--arc-spacing-8);
+}
+
+/* ===== Sections ===== */
+
+.header {
+  border-bottom: 1px solid var(--arc-color-neutral-200);
+}
+
+.header:empty {
+  display: none;
+  padding: 0;
+  border-bottom: none;
+}
+
+.footer {
+  border-top: 1px solid var(--arc-color-neutral-200);
+}
+
+.footer:empty {
+  display: none;
+  padding: 0;
+  border-top: none;
+}
+
+/* ===== Clickable ===== */
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  box-shadow: var(--arc-shadow-md);
+  transform: translateY(-1px);
+}
+
+.clickable:active {
+  transform: translateY(0);
+  box-shadow: var(--arc-shadow-sm);
+}
+
+.clickable:focus-visible {
+  outline: 2px solid var(--arc-color-primary-400);
+  outline-offset: 2px;
+}

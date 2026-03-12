@@ -1,0 +1,24 @@
+{
+  "name": "@arctech/vue",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ArcTech Design System - Vue component wrappers",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": ["dist/"],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "vue": ">=3.3"
+  },
+  "dependencies": {
+    "@arctech/core": "workspace:*"
+  },
+  "devDependencies": {
+    "vue": "^3.3.0",
+    "typescript": "^5.0.0"
+  }
+}

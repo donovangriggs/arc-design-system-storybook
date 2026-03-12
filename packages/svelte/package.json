@@ -1,0 +1,14 @@
+{
+  "name": "@arctech/svelte",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ArcTech Design System - Svelte Wrappers",
+  "svelte": "src/index.ts",
+  "types": "src/index.ts",
+  "peerDependencies": {
+    "svelte": ">=4"
+  },
+  "dependencies": {
+    "@arctech/core": "workspace:*"
+  }
+}

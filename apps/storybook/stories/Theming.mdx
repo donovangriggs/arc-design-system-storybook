@@ -1,0 +1,212 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Theming" />
+
+# Theming
+
+The ArcTech Design System supports light mode, dark mode, and fully custom themes through CSS custom properties and the `data-theme` attribute.
+
+---
+
+## How Light/Dark Mode Works
+
+Theme switching is controlled by the `data-theme` attribute on the root `<html>` element. When set to `"dark"`, the token values are swapped to their dark-mode counterparts.
+
+```html
+<!-- Light mode -->
+<html data-theme="light">
+
+<!-- Dark mode -->
+<html data-theme="dark">
+```
+
+In dark mode, the color scales are inverted. For example, `--arc-color-primary-500` becomes a lighter purple (`#a855f7`) instead of the standard `#7c3aed`, ensuring proper contrast on dark backgrounds.
+
+---
+
+## Using arc-theme-provider
+
+The `<arc-theme-provider>` component manages the `data-theme` attribute for you, including automatic detection of the user's OS preference.
+
+### Basic Usage
+
+```html
+<!-- Follow the user's OS preference (default) -->
+<arc-theme-provider theme="system">
+  <div>Your app content</div>
+</arc-theme-provider>
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `theme` | `'light' \| 'dark' \| 'system'` | `'system'` | Controls the active theme. `'system'` follows the OS preference. |
+
+### Explicit Mode
+
+Force a specific theme regardless of OS setting:
+
+```html
+<!-- Always light -->
+<arc-theme-provider theme="light">
+  <div>Always light content</div>
+</arc-theme-provider>
+
+<!-- Always dark -->
+<arc-theme-provider theme="dark">
+  <div>Always dark content</div>
+</arc-theme-provider>
+```
+
+### Dynamic Switching
+
+Toggle themes at runtime by updating the `theme` property:
+
+```js
+const provider = document.querySelector('arc-theme-provider');
+
+// Toggle between light and dark
+function toggleTheme() {
+  const current = provider.getAttribute('theme');
+  provider.setAttribute('theme', current === 'dark' ? 'light' : 'dark');
+}
+```
+
+In React:
+
+```tsx
+import { ArcThemeProvider } from '@arctech/react';
+import { useState } from 'react';
+
+function App() {
+  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system');
+
+  return (
+    <ArcThemeProvider theme={theme}>
+      <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+        Toggle Theme
+      </button>
+      <div>App content</div>
+    </ArcThemeProvider>
+  );
+}
+```
+
+---
+
+## Creating Custom Themes
+
+Custom themes are created by overriding the CSS custom properties under a `[data-theme]` selector. You can define as many custom themes as you need.
+
+### Step 1: Define the Theme
+
+Create a CSS file with your custom token overrides:
+
+```css
+/* themes/brand-blue.css */
+[data-theme="brand-blue"] {
+  /* Primary: Blue instead of purple */
+  --arc-color-primary-50: #eff6ff;
+  --arc-color-primary-100: #dbeafe;
+  --arc-color-primary-200: #bfdbfe;
+  --arc-color-primary-300: #93c5fd;
+  --arc-color-primary-400: #60a5fa;
+  --arc-color-primary-500: #3b82f6;
+  --arc-color-primary-600: #2563eb;
+  --arc-color-primary-700: #1d4ed8;
+  --arc-color-primary-800: #1e40af;
+  --arc-color-primary-900: #1e3a8a;
+
+  /* Secondary: Orange accent */
+  --arc-color-secondary-50: #fff7ed;
+  --arc-color-secondary-100: #ffedd5;
+  --arc-color-secondary-200: #fed7aa;
+  --arc-color-secondary-300: #fdba74;
+  --arc-color-secondary-400: #fb923c;
+  --arc-color-secondary-500: #f97316;
+  --arc-color-secondary-600: #ea580c;
+  --arc-color-secondary-700: #c2410c;
+  --arc-color-secondary-800: #9a3412;
+  --arc-color-secondary-900: #7c2d12;
+
+  /* Override other tokens as needed */
+  --arc-font-family-sans: 'Roboto', system-ui, sans-serif;
+  --arc-border-radius-md: 4px;
+  --arc-border-radius-lg: 8px;
+}
+```
+
+### Step 2: Import the Theme
+
+Add your theme CSS alongside the base tokens:
+
+```css
+@import '@arctech/tokens/css/tokens.css';
+@import './themes/brand-blue.css';
+```
+
+### Step 3: Activate the Theme
+
+Set the `data-theme` attribute to your custom theme name:
+
+```html
+<html data-theme="brand-blue">
+```
+
+Or use JavaScript:
+
+```js
+document.documentElement.setAttribute('data-theme', 'brand-blue');
+```
+
+### Step 4: Combine with Dark Mode (Optional)
+
+You can create a dark variant of your custom theme:
+
+```css
+[data-theme="brand-blue-dark"] {
+  --arc-color-primary-50: #1e3a8a;
+  --arc-color-primary-100: #1e40af;
+  --arc-color-primary-200: #1d4ed8;
+  --arc-color-primary-300: #2563eb;
+  --arc-color-primary-400: #3b82f6;
+  --arc-color-primary-500: #60a5fa;
+  --arc-color-primary-600: #93c5fd;
+  --arc-color-primary-700: #bfdbfe;
+  --arc-color-primary-800: #dbeafe;
+  --arc-color-primary-900: #eff6ff;
+
+  --arc-color-neutral-0: #09090b;
+  --arc-color-neutral-50: #18181b;
+  --arc-color-neutral-100: #27272a;
+  --arc-color-neutral-800: #f4f4f5;
+  --arc-color-neutral-900: #fafafa;
+  --arc-color-neutral-950: #ffffff;
+}
+```
+
+---
+
+## Scoped Theming
+
+You can apply different themes to different sections of a page by using the `data-theme` attribute on any container element, provided your components read tokens from their closest ancestor:
+
+```html
+<div data-theme="light">
+  <arc-card>This card uses light theme</arc-card>
+</div>
+
+<div data-theme="dark">
+  <arc-card>This card uses dark theme</arc-card>
+</div>
+```
+
+---
+
+## Tips
+
+- You only need to override the tokens you want to change. Unset tokens inherit from `:root`.
+- Use a naming convention for custom themes: `brand-*`, `client-*`, etc.
+- Keep dark-mode variants in a separate `[data-theme]` selector rather than using `prefers-color-scheme` directly -- this gives you explicit control.
+- Test custom themes with all components to ensure proper contrast ratios and readability.

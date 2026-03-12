@@ -1,0 +1,15 @@
+{
+  "name": "@arctech/angular",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ArcTech Design System - Angular Wrappers",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "peerDependencies": {
+    "@angular/core": ">=17",
+    "@angular/common": ">=17"
+  },
+  "dependencies": {
+    "@arctech/core": "workspace:*"
+  }
+}

@@ -1,0 +1,217 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started" />
+
+# Getting Started
+
+Install the ArcTech Design System in your project and start using components in minutes.
+
+---
+
+## Installation
+
+Choose the package that matches your framework.
+
+### Core (Web Components)
+
+```bash
+# pnpm
+pnpm add @arctech/core
+
+# npm
+npm install @arctech/core
+
+# yarn
+yarn add @arctech/core
+```
+
+### React
+
+```bash
+pnpm add @arctech/react
+```
+
+### Vue
+
+```bash
+pnpm add @arctech/vue
+```
+
+### Angular
+
+```bash
+pnpm add @arctech/angular
+```
+
+### Svelte
+
+```bash
+pnpm add @arctech/svelte
+```
+
+### Tokens Only
+
+If you only need design tokens (CSS custom properties, JS constants):
+
+```bash
+pnpm add @arctech/tokens
+```
+
+---
+
+## React Setup
+
+Import `defineCustomElements` from the core package to register the web components, then use the React wrapper components directly.
+
+```tsx
+// main.tsx
+import { defineCustomElements } from '@arctech/core/loader';
+import '@arctech/tokens/css/tokens.css';
+
+defineCustomElements();
+```
+
+```tsx
+// App.tsx
+import { ArcButton, ArcCard, ArcInput } from '@arctech/react';
+
+function App() {
+  return (
+    <ArcCard>
+      <ArcInput label="Name" placeholder="Enter your name" />
+      <ArcButton variant="primary" onClick={() => console.log('clicked')}>
+        Submit
+      </ArcButton>
+    </ArcCard>
+  );
+}
+```
+
+---
+
+## Vue Setup
+
+Register the custom elements so Vue does not treat `arc-*` tags as unknown components.
+
+```ts
+// main.ts
+import { createApp } from 'vue';
+import { defineCustomElements } from '@arctech/core/loader';
+import '@arctech/tokens/css/tokens.css';
+import App from './App.vue';
+
+defineCustomElements();
+
+const app = createApp(App);
+
+app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith('arc-');
+
+app.mount('#app');
+```
+
+```vue
+<!-- App.vue -->
+<template>
+  <arc-card>
+    <arc-input label="Name" placeholder="Enter your name"></arc-input>
+    <arc-button variant="primary">Submit</arc-button>
+  </arc-card>
+</template>
+```
+
+---
+
+## Angular Setup
+
+Add `CUSTOM_ELEMENTS_SCHEMA` to your module or standalone component so Angular allows custom element tags.
+
+```ts
+// app.module.ts
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { defineCustomElements } from '@arctech/core/loader';
+import { AppComponent } from './app.component';
+
+defineCustomElements();
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+```html
+<!-- app.component.html -->
+<arc-card>
+  <arc-input label="Name" placeholder="Enter your name"></arc-input>
+  <arc-button variant="primary">Submit</arc-button>
+</arc-card>
+```
+
+Import the token stylesheet in your global styles:
+
+```css
+/* styles.css */
+@import '@arctech/tokens/css/tokens.css';
+```
+
+---
+
+## Svelte Setup
+
+Call `defineCustomElements` at your app entry point. Svelte natively supports custom elements, so `arc-*` tags work without additional configuration.
+
+```ts
+// main.ts
+import { defineCustomElements } from '@arctech/core/loader';
+import '@arctech/tokens/css/tokens.css';
+import App from './App.svelte';
+
+defineCustomElements();
+
+const app = new App({ target: document.getElementById('app')! });
+export default app;
+```
+
+```svelte
+<!-- App.svelte -->
+<arc-card>
+  <arc-input label="Name" placeholder="Enter your name"></arc-input>
+  <arc-button variant="primary">Submit</arc-button>
+</arc-card>
+```
+
+---
+
+## Vanilla / CDN
+
+Use a script tag to load the components directly. No bundler required.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/@arctech/tokens/css/tokens.css" />
+  <script type="module" src="https://unpkg.com/@arctech/core/dist/arc-design-system/arc-design-system.esm.js"></script>
+</head>
+<body>
+  <arc-theme-provider theme="system">
+    <arc-card>
+      <arc-input label="Name" placeholder="Enter your name"></arc-input>
+      <arc-button variant="primary">Submit</arc-button>
+    </arc-card>
+  </arc-theme-provider>
+</body>
+</html>
+```
+
+---
+
+## Next Steps
+
+- Browse the [Design Tokens](?path=/docs/foundations-design-tokens--docs) to understand the visual foundation
+- Learn about [Theming](?path=/docs/foundations-theming--docs) for light/dark mode support
+- Explore individual components in the sidebar

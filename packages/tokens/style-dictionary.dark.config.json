@@ -1,0 +1,30 @@
+{
+  "source": ["src/tokens.json", "src/tokens-dark.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "css/",
+      "files": [
+        {
+          "destination": "tokens-dark.css",
+          "format": "css/variables",
+          "options": {
+            "selector": "[data-theme=\"dark\"]"
+          }
+        }
+      ],
+      "prefix": "arc"
+    },
+    "js": {
+      "transformGroup": "js",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "tokens-dark.js",
+          "format": "javascript/es6"
+        }
+      ],
+      "prefix": "arc"
+    }
+  }
+}

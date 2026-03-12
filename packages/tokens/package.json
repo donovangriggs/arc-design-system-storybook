@@ -1,0 +1,18 @@
+{
+  "name": "@arctech/tokens",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Design tokens for ArcTech design system",
+  "main": "dist/tokens.js",
+  "types": "dist/tokens.d.ts",
+  "files": ["dist", "css"],
+  "scripts": {
+    "build": "style-dictionary build --config style-dictionary.config.json && style-dictionary build --config style-dictionary.dark.config.json",
+    "build:dark": "style-dictionary build --config style-dictionary.dark.config.json",
+    "clean": "rm -rf dist css",
+    "test": "node src/tokens.test.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.0.0"
+  }
+}

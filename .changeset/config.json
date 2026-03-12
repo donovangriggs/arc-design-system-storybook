@@ -1,0 +1,19 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [],
+  "linked": [
+    ["@arctech/core", "@arctech/react", "@arctech/vue", "@arctech/angular", "@arctech/svelte"]
+  ],
+  "access": "restricted",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": [
+    "@arctech/storybook",
+    "@arctech/demo-react",
+    "@arctech/demo-vue",
+    "@arctech/demo-svelte",
+    "@arctech/demo-angular"
+  ]
+}

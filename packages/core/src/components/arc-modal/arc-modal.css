@@ -1,0 +1,124 @@
+/* ===== Overlay ===== */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--arc-transition-normal),
+    visibility var(--arc-transition-normal);
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== Modal ===== */
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 85vh;
+  background-color: var(--arc-color-neutral-0);
+  border-radius: var(--arc-border-radius-lg);
+  box-shadow: var(--arc-shadow-xl);
+  font-family: var(--arc-font-family-sans);
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform var(--arc-transition-normal),
+    opacity var(--arc-transition-normal);
+}
+
+.overlay.open .modal {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ===== Sizes ===== */
+
+.size-sm {
+  max-width: 400px;
+}
+
+.size-md {
+  max-width: 560px;
+}
+
+.size-lg {
+  max-width: 720px;
+}
+
+.size-full {
+  max-width: 90vw;
+}
+
+/* ===== Header ===== */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--arc-spacing-4) var(--arc-spacing-6);
+  border-bottom: 1px solid var(--arc-color-neutral-200);
+  font-size: var(--arc-font-size-lg);
+  font-weight: var(--arc-font-weight-semibold);
+}
+
+/* ===== Body ===== */
+
+.body {
+  flex: 1;
+  padding: var(--arc-spacing-6);
+  overflow-y: auto;
+  font-size: var(--arc-font-size-base);
+  line-height: var(--arc-line-height-normal);
+  color: var(--arc-color-neutral-700);
+}
+
+/* ===== Footer ===== */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--arc-spacing-3);
+  padding: var(--arc-spacing-4) var(--arc-spacing-6);
+  border-top: 1px solid var(--arc-color-neutral-200);
+}
+
+/* ===== Close Button ===== */
+
+.close-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--arc-border-radius-sm);
+  background: transparent;
+  color: var(--arc-color-neutral-500);
+  cursor: pointer;
+  transition: background-color var(--arc-transition-fast),
+    color var(--arc-transition-fast);
+}
+
+.close-button:hover {
+  background-color: var(--arc-color-neutral-100);
+  color: var(--arc-color-neutral-700);
+}
+
+.close-button:focus-visible {
+  outline: 2px solid var(--arc-color-primary-400);
+  outline-offset: 2px;
+}

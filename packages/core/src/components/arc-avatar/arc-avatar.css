@@ -1,0 +1,89 @@
+:host {
+  display: inline-block;
+  font-family: var(--arc-font-family-sans);
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--arc-color-primary-100);
+  color: var(--arc-color-primary-700);
+  font-weight: var(--arc-font-weight-semibold);
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Shapes */
+.avatar--circle {
+  border-radius: var(--arc-border-radius-full);
+}
+
+.avatar--square {
+  border-radius: var(--arc-border-radius-md);
+}
+
+/* Sizes */
+.avatar--xs {
+  width: 24px;
+  height: 24px;
+  font-size: var(--arc-font-size-xs);
+}
+
+.avatar--sm {
+  width: 32px;
+  height: 32px;
+  font-size: var(--arc-font-size-xs);
+}
+
+.avatar--md {
+  width: 40px;
+  height: 40px;
+  font-size: var(--arc-font-size-sm);
+}
+
+.avatar--lg {
+  width: 48px;
+  height: 48px;
+  font-size: var(--arc-font-size-base);
+}
+
+.avatar--xl {
+  width: 64px;
+  height: 64px;
+  font-size: var(--arc-font-size-xl);
+}
+
+/* Image */
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Initials */
+.avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Fallback icon */
+.avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--arc-color-primary-400);
+}
+
+.avatar-fallback-icon {
+  width: 60%;
+  height: 60%;
+}

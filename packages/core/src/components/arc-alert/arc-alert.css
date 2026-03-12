@@ -1,0 +1,134 @@
+:host {
+  display: block;
+  font-family: var(--arc-font-family-sans);
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--arc-spacing-3);
+  padding: var(--arc-spacing-4);
+  border: 1px solid;
+  border-radius: var(--arc-border-radius-md);
+  line-height: var(--arc-line-height-normal);
+}
+
+/* Variant: info */
+.alert--info {
+  background-color: var(--arc-color-info-50);
+  border-color: var(--arc-color-info-500);
+  color: var(--arc-color-info-700);
+}
+
+.alert--info .alert-icon {
+  color: var(--arc-color-info-500);
+}
+
+/* Variant: success */
+.alert--success {
+  background-color: var(--arc-color-success-50);
+  border-color: var(--arc-color-success-500);
+  color: var(--arc-color-success-700);
+}
+
+.alert--success .alert-icon {
+  color: var(--arc-color-success-500);
+}
+
+/* Variant: warning */
+.alert--warning {
+  background-color: var(--arc-color-warning-50);
+  border-color: var(--arc-color-warning-500);
+  color: var(--arc-color-warning-700);
+}
+
+.alert--warning .alert-icon {
+  color: var(--arc-color-warning-500);
+}
+
+/* Variant: error */
+.alert--error {
+  background-color: var(--arc-color-error-50);
+  border-color: var(--arc-color-error-500);
+  color: var(--arc-color-error-700);
+}
+
+.alert--error .alert-icon {
+  color: var(--arc-color-error-500);
+}
+
+/* Icon */
+.alert-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+}
+
+.alert-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Content */
+.alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Title */
+.alert-title {
+  font-size: var(--arc-font-size-sm);
+  font-weight: var(--arc-font-weight-semibold);
+  margin-bottom: var(--arc-spacing-1);
+}
+
+/* Message */
+.alert-message {
+  font-size: var(--arc-font-size-sm);
+  font-weight: var(--arc-font-weight-normal);
+}
+
+/* Action slot */
+.alert-action {
+  margin-top: var(--arc-spacing-2);
+}
+
+.alert-action:empty {
+  display: none;
+}
+
+/* Dismiss button */
+.alert-dismiss {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: var(--arc-spacing-1);
+  margin: calc(-1 * var(--arc-spacing-1));
+  border: none;
+  border-radius: var(--arc-border-radius-sm);
+  background: transparent;
+  color: currentColor;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity var(--arc-transition-fast),
+              background-color var(--arc-transition-fast);
+}
+
+.alert-dismiss:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.alert-dismiss:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.alert-dismiss svg {
+  width: 16px;
+  height: 16px;
+}

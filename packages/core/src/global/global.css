@@ -1,0 +1,13 @@
+/**
+ * ArcTech Design System - Global Styles
+ * These tokens are injected at :root and cascade into all components.
+ */
+@import '../../../tokens/css/tokens.css';
+
+:root {
+  font-family: var(--arc-font-family-sans);
+  line-height: var(--arc-line-height-normal);
+  color: var(--arc-color-neutral-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

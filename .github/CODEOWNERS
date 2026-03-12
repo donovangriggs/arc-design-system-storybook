@@ -1,0 +1,12 @@
+# Design system core
+packages/core/ @design-system-team
+packages/tokens/ @design-system-team
+
+# Framework wrappers
+packages/react/ @frontend-team
+packages/vue/ @frontend-team
+packages/angular/ @frontend-team
+packages/svelte/ @frontend-team
+
+# Storybook
+apps/storybook/ @design-system-team

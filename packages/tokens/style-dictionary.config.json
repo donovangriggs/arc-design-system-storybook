@@ -1,0 +1,30 @@
+{
+  "source": ["src/**/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "css/",
+      "files": [
+        {
+          "destination": "tokens.css",
+          "format": "css/variables",
+          "options": {
+            "selector": ":root"
+          }
+        }
+      ],
+      "prefix": "arc"
+    },
+    "js": {
+      "transformGroup": "js",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "tokens.js",
+          "format": "javascript/es6"
+        }
+      ],
+      "prefix": "arc"
+    }
+  }
+}
