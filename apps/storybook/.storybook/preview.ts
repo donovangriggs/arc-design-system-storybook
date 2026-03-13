@@ -1,8 +1,8 @@
 import type { Preview } from '@storybook/web-components';
 
-// Register all arc-* custom elements via Stencil loader
-import { defineCustomElements } from '@arctech/core/loader';
-defineCustomElements();
+// Register all arc-* custom elements via Stencil custom elements bundle
+// Uses dist-custom-elements with auto-define, so importing registers all tags
+import '@arctech/core/dist/components';
 
 // Import design tokens (light + dark)
 import '@arctech/tokens/css/tokens.css';
